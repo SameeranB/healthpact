@@ -37,11 +37,25 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth'
+
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
-
+  auth: {
+    redirect: {
+      callback: '/oauth/processing',
+      login:'/authentication',
+      logout: '/',
+      home: "/"
+    },
+    strategies: {
+      google: {
+        client_id: process.env.GOOGLE_OAUTH_CLIENT_ID,
+      },
+    }
+  },
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

@@ -17,8 +17,11 @@
             hover
             ripple
             color="accent"
+            @click="authenticate"
           >
-            <v-card-title><v-icon x-large>mdi-google</v-icon></v-card-title>
+            <v-card-title>
+              <v-icon x-large>mdi-google</v-icon>
+            </v-card-title>
             <v-card-text class="text-center text-h6">Continue With Google</v-card-text>
           </v-card>
         </v-col>
@@ -29,7 +32,12 @@
 
 <script>
 export default {
-  name: "authentication"
+  name: "authentication",
+  methods: {
+    async authenticate() {
+      return this.$auth.loginWith('google')
+    }
+  }
 }
 </script>
 

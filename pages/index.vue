@@ -20,11 +20,21 @@
               </v-container>
             </v-col>
           </v-row>
-          <v-row id="register button" style="height: 20vh" class="d-flex align-center justify-center">
+          <v-row id="register_button" style="height: 20vh" class="d-flex align-center justify-center">
             <v-col class="d-flex flex-column align-center justify-center " cols="12">
+
+              <v-btn
+              v-if="$auth.loggedIn"
+              color="secondary"
+              @click="$router.push('dashboard')"
+              >
+                Open Dashboard
+              </v-btn>
+
               <v-btn
               color="secondary"
               @click="$router.push('authentication')"
+              v-else
               >
                 Register Now
               </v-btn>
